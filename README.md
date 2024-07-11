@@ -11,7 +11,7 @@ Python version: 3.12.0
 
 ### Create environment using python-venv (make sure to have python-venv):
 ```
-python -m venv <name of env folder>
+python -m venv venv
 ```
 
 NOTE: try python3 if python points to another python version for some reason, to use python3.
@@ -19,12 +19,12 @@ NOTE: try python3 if python points to another python version for some reason, to
 ### Navigate into the created venv folder and activate environment:
 Linux:  
 ```
-source <name of env folder>/bin/activate
+source venv/bin/activate
 ```
 
 Windows:
 ```
-source <name of env folder>/Scripts/activate
+source venv/Scripts/activate
 ```
 
 ### Install dependencies using pip (package manager for python):
