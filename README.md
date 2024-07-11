@@ -3,11 +3,11 @@ Python project for implementing txt2speech from website, pdf or txt files. Motiv
 
 NOTE: This project is still ongoing. Use at your own risk!
 
-# SETUP/INSTALATION STEPS DEV ENV:    
+## SETUP/INSTALATION STEPS DEV ENV:    
 
 **TODO**, but python-env is for sure used for the env. *requirements.txt* used for dependencies.
 
-# INFO TOOLS:  
+## INFO TOOLS:  
 
 Python version: 3.12.0  
 
