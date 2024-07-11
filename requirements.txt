@@ -1,3 +1,12 @@
+setuptools # for paddleOCR to work
 pypdf==4.2.0 # for handling pdf files for txt extraction
+transformers==4.42.3 # architecture/module used by many deep learning models 
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==2.3.1+cu121 # for running deep learning models 
+torchvision==0.18.1 # for pytorch datasets, model architectures, and common image transformations for computer vision. 
 
+# model for extracting text from image
+paddleocr==2.8.0
+--index-url https://www.paddlepaddle.org.cn/packages/stable/cu123/
+paddlepaddle-gpu==3.0.0b0 
 
