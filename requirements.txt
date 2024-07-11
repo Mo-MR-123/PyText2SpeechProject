@@ -1,0 +1,3 @@
+pypdf==4.2.0 # for handling pdf files for txt extraction
+
+
