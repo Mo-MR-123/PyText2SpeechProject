@@ -3,14 +3,34 @@ Python project for implementing txt2speech from website, pdf or txt files. Motiv
 
 NOTE: This project is still ongoing. Use at your own risk!
 
-## SETUP/INSTALATION STEPS DEV ENV:    
-
-**TODO**, but python-env is for sure used for the env. *requirements.txt* used for dependencies.
-
 ## INFO TOOLS:  
 
 Python version: 3.12.0  
 
+## SETUP/INSTALATION STEPS DEV ENV:    
+
+### Create environment using python-venv (make sure to have python-venv):
+```
+python -m venv <name of env folder>
+```
+
+NOTE: try python3 if python points to another python version for some reason, to use python3.
+
+### Navigate into the created venv folder and activate environment:
+Linux:  
+```
+source <name of env folder>/bin/activate
+```
+
+Windows:
+```
+source <name of env folder>/Scripts/activate
+```
+
+### Install dependencies using pip (package manager for python):
+```
+pip install -r requirements.txt
+```
 
 ## PLAN:  
 **1:** Find a good txt2speech model with a voice that is as natural and soothing as possible to listen to.  
