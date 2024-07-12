@@ -1,5 +1,5 @@
 setuptools # for paddleOCR to work
-pypdf==4.2.0 # for handling pdf files for txt extraction
+pypdf==4.2.0 
 transformers==4.42.3 # architecture/module used by many deep learning models 
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==2.3.1+cu121 # for running deep learning models 
