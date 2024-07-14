@@ -1,5 +1,6 @@
 import logging
 
+from src.parsers.base_parser import BaseParser
 from paddleocr import PaddleOCR, draw_ocr
 from pathlib import Path
 from loggers.log_config import LogConfig
@@ -12,7 +13,7 @@ PaddleOCR extracts text from images using a Computer Vision Model.
 Thus far, this is best model I could find that can extract text
 with high accuracy.
 """
-class PaddleOCRParser:
+class PaddleOCRParser(BaseParser):
 
     def __init__(self, lang="en", show_log=False) -> None:
         """Init paddleOCR with args.
@@ -35,7 +36,7 @@ class PaddleOCRParser:
         # logging.getLogger('ppocr').handlers = [] # shut off paddle logging completely
         logging.getLogger('ppocr').setLevel(logging.ERROR) # this prevents additional warnings to be printed to stdout
 
-    def set_lang(lang: str):
+    def set_lang(self, lang: str):
         """Change assumed language of images
 
         Args:
@@ -55,7 +56,7 @@ class PaddleOCRParser:
         """
         assert isinstance(img_path, Path), f"Path to image is not a Path instance. Instead it is {img_path}"
         if conf_val:
-            assert (conf_val < 0 or conf_val > 1), f"conf_val {conf_val} is not between 0 and 1"
+            assert (conf_val >= 0 or conf_val <= 1), f"conf_val {conf_val} is not between 0 and 1"
         
         result = self.paddle.ocr(str(img_path), cls=_cls)
         extacted_txt_lst = []

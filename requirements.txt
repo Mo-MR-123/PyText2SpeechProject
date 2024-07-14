@@ -1,12 +1,19 @@
-setuptools # for paddleOCR to work
-pypdf==4.2.0 
-transformers==4.42.3 # architecture/module used by many deep learning models 
---find-links https://download.pytorch.org/whl/torch_stable.html
-torch==2.3.1+cu121 # for running deep learning models 
-torchvision==0.18.1 # for pytorch datasets, model architectures, and common image transformations for computer vision. 
+setuptools # used by paddleOCR to install its models and modules
+pypdf==4.2.0 # for extracting text from pdf files
+pip3-autoremove==1.2.2 # for removing pip packages including dependencies
+autopep8==2.3.1 #  tool to check your Python code against some of the style conventions in PEP 8.
+
+# For TTS models
+TTS==0.22.0
+
+# torch==2.3.1+cu121 
+# torchaudio===2.3.0 # for audio stuff that use torch
+# torchvision==0.18.1
+# torch==1.8.0+cu101 # for running deep learning models 
+# torchvision==0.9.0+cu101 # for pytorch datasets, model architectures, and common image transformations for computer vision. 
+# torchaudio===0.8.0 # for audio stuff that use torch
 
 # model for extracting text from image
-paddleocr==2.8.0
---index-url https://www.paddlepaddle.org.cn/packages/stable/cu123/
-paddlepaddle-gpu==3.0.0b0 
+paddleocr>=2.0.1
+
 

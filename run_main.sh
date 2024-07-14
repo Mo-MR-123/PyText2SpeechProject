@@ -5,5 +5,6 @@
 # This makes sure that the experiment scripts can see and use other modules (e.g. shared folder)
 # and use it without import errors.
 export PYTHONPATH="$PWD"
+export IS_DEV_LOGGING=1 # log to stdout if we are in dev. otherwise log in files.
 
 python src/main.py

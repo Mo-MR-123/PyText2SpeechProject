@@ -5,7 +5,7 @@ NOTE: This project is still ongoing. Use at your own risk!
 
 ## INFO TOOLS:  
 
-Python version: 3.12.0  
+Python version: 3.11.9  
 
 ## SETUP/INSTALATION STEPS DEV ENV:    
 
@@ -27,9 +27,15 @@ Windows:
 source venv/Scripts/activate
 ```
 
-### Install dependencies using pip (package manager for python):
+### Update pip to latest version:
 ```
-pip install -r requirements.txt
+python -m pip install --upgrade pip
+```
+
+### Install dependencies for the environment using the following script:
+```
+chmod +x install_env.sh
+./install_env.sh
 ```
 
 ## PLAN:  
