@@ -35,6 +35,11 @@ MANIFEST
 # ignore pdfs
 *.pdf
 
+# ignore wav, mp3, png
+*.mp3
+*.wav
+*.png
+
 # Installer 
 logs
 pip-log.txt
