@@ -2,9 +2,13 @@ setuptools # used by paddleOCR to install its models and modules
 pypdf==4.2.0 # for extracting text from pdf files
 pip3-autoremove==1.2.2 # for removing pip packages including dependencies
 autopep8==2.3.1 #  tool to check your Python code against some of the style conventions in PEP 8.
+pyaudio==0.2.14 # for running sound using wave files
+PyMuPDF==1.24.8 # another package for extracting txt from pdf,txt,epub,XPS,MOBI,FB2,CBZ file types
+sentence-splitter==1.4
+# ftfy==6.2.0 # for fixing malformed extracted text from documents
 
-# For TTS models
-TTS==0.22.0
+# For TTS models (this is a fork of TTS with better logging and testing. Also maintained better.)
+coqui-tts==0.24.1
 
 # model for extracting text from image
 paddleocr>=2.0.1
