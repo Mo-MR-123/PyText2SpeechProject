@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Upgrade pip
-python -m pip install --upgrade pip
+python -m pip install --upgrade pip # IF you decide to use textract, pip==24 is required.
 
 # install torch and torchaudio used by TTS package. This is done here to install GPU version of torch.
 # Installing TTS does not do this.
