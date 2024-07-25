@@ -2,11 +2,29 @@ import logging
 import os
 import sys
 
+from typing import Union
 from logging import Logger
 from pathlib import Path
 from datetime import datetime
 
 LOGGER_IS_DEV = int(os.environ["IS_DEV_LOGGING"])
+ENABLE_LOGGING = int(os.environ["ENABLE_LOGGING"])
+
+class LoggerStub:
+    def __init__(self):
+        pass
+
+    def info(self, msg):
+        pass
+    
+    def debug(self, msg):
+        pass
+
+    def critical(self, msg):
+        pass
+
+    def error(self, msg):
+        pass
 
 """
 LogConfig class is responsible for configuring new loggers. 
@@ -40,7 +58,10 @@ class LogConfig:
 
         self.logger.setLevel(self.log_level)
 
-    def get_logger(self, name) -> Logger:
+    def get_logger(self, name) -> Union[Logger, LoggerStub]:
+        if not ENABLE_LOGGING:
+            return LoggerStub()
+            
         self.logger = logging.getLogger(name)
         self.logger.setLevel(self.log_level)
 
