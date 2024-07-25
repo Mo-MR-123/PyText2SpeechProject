@@ -45,6 +45,9 @@ class PyMuPDFParser(BaseParser):
                 raise ValueError(f"Page number {page_number=} out of range.")
 
     def remove_all_links(self) -> None:
+        """
+        FROM -> https://www.linkedin.com/pulse/streamline-your-pdfs-effortlessly-remove-annotations-targeted-arshad-pyjuc
+        """
         # raise NotImplementedError("TODO: Implement this method")
             
         for page in self._pdf_reader:
