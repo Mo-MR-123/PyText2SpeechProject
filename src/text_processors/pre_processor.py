@@ -72,8 +72,14 @@ class PreProcessor:
         This function removes dots/periods from a sentence/string as that is considered as noise.
         Removing  also helps decrease amount of tokens to pass to the model.
 
-        #TODO: This function adds unwanted extra whitespaces after single dots.
-                e.g. -> "1.19" becomes "1. 19"
+        TODO: This function now prevents extra whitespaces after single dots of decimal digits.
+                e.g. -> "1.19" now stays as is which is correct. 
+                But this also leads to this "1. ... ." -> "1.."
+
+        TODO: in some cases, after removal of multiple dots, the word that comes after is appended
+              immediately after the sentence.
+              example: "That is cool.. No, this is cooler." -> "This is cool.No, this is cooler."
+              This should not happen. Does adding whitespace in this case solve this without adding more issues?
 
         Example sentences: 
             1) "This sentence is extracted with extra dots...."
@@ -86,15 +92,22 @@ class PreProcessor:
             str: The same string/sentence without extra dots/periods.
         """
         # Replace sequences of dots (with or without spaces) with a single dot followed by a space
-        # Replace multiple dots with a single dot and a space
-        cleaned_string = re.sub(r'\s*\.{1,}\s*', '.', text_str)
+        # Replace multiple dots with a single dot and a space. 
+        # cleaned_string = re.sub(r'\s*\.{1,}\s*', '.', text_str)
+        # cleaned_string = re.sub(r'(?<!\d)\s*\.{2,}\s*(?!\d)', '.', text_str)
+        cleaned_string = re.sub(r'(?<!\d)(?:\s*\.){2,}\s*(?!\d)', '. ', text_str)
         
         # Ensure multiple dots are replaced with a single dot
         # Add space after the dot to ensure right spacing between sentences
-        cleaned_string = re.sub(r'\.+', '. ', cleaned_string)
+        # cleaned_string = re.sub(r'\.+', '. ', cleaned_string)
+        # cleaned_string = re.sub(r'(?<!\d)\.+(?!\d)', '. ', cleaned_string)
+        cleaned_string = re.sub(r'\s+\.', '.', cleaned_string)
         
         # Remove leading/trailing dots
-        cleaned_string = re.sub(r'^\.+|\.+$', '', cleaned_string)
+        # cleaned_string = re.sub(r'^\.+|\.+$', '', cleaned_string)
+
+        # Remove only leading to prevent remove trailing dot that is part of sentence!
+        cleaned_string = re.sub(r'^\.+', '', cleaned_string)
 
          # Strip leading/trailing whitespace
         cleaned_string = cleaned_string.strip()
