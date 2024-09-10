@@ -6,5 +6,6 @@
 # and use it without import errors.
 export PYTHONPATH="$PWD"
 export IS_DEV_LOGGING=1 # log to stdout if we are in dev. otherwise log in files.
+export ENABLE_LOGGING=0
 
 python src/main.py
