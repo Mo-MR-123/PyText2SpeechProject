@@ -4,7 +4,7 @@ from src.parsers.base_parser import BaseParser
 from pypdf import PdfReader
 from pathlib import Path
 from loggers.log_config import LogConfig
-from src.text_processors.post_processor import PostProcessor
+from src.text_processors.pre_processor import PreProcessor
 
 log_config = LogConfig(log_level=logging.DEBUG)
 
@@ -14,13 +14,13 @@ THE PROJECT.
 """
 class PyPdfParser(BaseParser):
 
-    def __init__(self, path_to_pdf: Path, post_processor: PostProcessor = None):
+    def __init__(self, path_to_pdf: Path, pre_processor: PreProcessor = None):
         self.logger = log_config.get_logger(self.__class__.__name__)
         self.path_to_pdf = path_to_pdf
         self.pdf_reader = PdfReader(path_to_pdf)
         self.start_page_default = 0
         self.end_page_default = self.pdf_reader.get_num_pages()
-        self.post_processor = post_processor
+        self.pre_processor = pre_processor
 
     # TODO: pre/post process txt to remove e.g. weird characters.
     def extract_txt_from_pdf(

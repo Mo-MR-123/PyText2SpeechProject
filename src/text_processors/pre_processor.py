@@ -15,6 +15,15 @@ class PreProcessor:
     def __init__(self):
         self.logger = log_config.get_logger(self.__class__.__name__)
 
+    def remove_unwanted_nonascii_chars(self, text_str: str):
+        return text_str \
+            .replace("\r", " ") \
+            .replace("\n", " ") \
+            .replace("\t", " ") \
+            .replace("\x0c", " ") \
+            .replace("\xa0", " ") \
+            .replace("\xad", " ")
+
     def remove_punctuations(self, text_str: str) -> str:
         """
         This function remove punctuations in a string.
@@ -35,21 +44,20 @@ class PreProcessor:
         """
         This function remove a subset of common punctuations at the end of a sentence/string.
         Punctuations to be removed: '.' && ',' && '!' && '?' &&  ';' && ':'
+
         Args:
             text_str (str): A string from which punctuations at the end need to be removed.
 
         Returns:
             str: The same string/sentence without punctuations at the end.
         """
+
+        # rstrip will continue to remove each char separately from text from the right
+        # until it doesn't encounter one anymore (from the right).
         return text_str.rstrip('.,!?;:')
 
     def remove_ref_numbers(self, text_str: str) -> str:
         """
-        TODO: find better way to remove ref numbers using indictive patterns of ref numbers.
-              This is because we cannot simply remove them since 1.19 is a valid number but 
-              the part after the dot is removed with this code. This needs to be handled by
-              the parser...
-
         This function remove reference numbers (if applicable) from a sentence/string.
         Examples of reference numbers: 
             1) "Research showed increase in population.1 There is..."
@@ -67,19 +75,38 @@ class PreProcessor:
         pattern = r'(\.|\?|\!|\‘|\’|\;|\:)(\d+(?:,\s*\d+)*,?)' # captured groups e.g. [.1], [.1,2,], [.1,2,3]
         return re.sub(pattern, '.', text_str)
 
+    def remove_leading_commas(self, text_str: str) -> str:
+        """
+        Removes leading commas with empty space around them after a dot.
+
+        This can occur when multiple reference numbers separated by commas 
+        are removed from the text which leaves scattered commas that can 
+        intefere with sentence splitting process. 
+        
+        E.g. ".1, 2,3 Here goes another sentence." -> ". ,  , Here goes another sentence."
+
+        Args:
+            text_str (str): Text string to remove leading commas from
+
+        Returns:
+            str: The text string without leading commas after a dot
+        """
+        return re.sub(r'\.(\s*,\s*)+', '. ', text_str)
+
     def remove_extra_periods(self, text_str: str) -> str:
         """
         This function removes dots/periods from a sentence/string as that is considered as noise.
         Removing  also helps decrease amount of tokens to pass to the model.
 
-        TODO: This function now prevents extra whitespaces after single dots of decimal digits.
+        NOTE: This function now prevents extra whitespaces after single dots of decimal digits.
                 e.g. -> "1.19" now stays as is which is correct. 
                 But this also leads to this "1. ... ." -> "1.."
+                This can be resolved using rstrip on "." char to remove all the dots.
 
-        TODO: in some cases, after removal of multiple dots, the word that comes after is appended
+        NOTE: in some cases, after removal of multiple dots, the word that comes after is appended
               immediately after the sentence.
               example: "That is cool.. No, this is cooler." -> "This is cool.No, this is cooler."
-              This should not happen. Does adding whitespace in this case solve this without adding more issues?
+              UPDATE: this issue is resolved. Whitespace is added after ending dots.
 
         Example sentences: 
             1) "This sentence is extracted with extra dots...."
