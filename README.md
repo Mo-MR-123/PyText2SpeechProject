@@ -40,6 +40,9 @@ chmod +x install_env.sh
 **4:** Add args parser for user to give params to the program.
 
 ## TODOS:  
+
+- [ ] Add support for .srt files, to be able to convert subtitles to speech 
+
 - [x]  
 from TTS, the "self.synthesizer.tts(...)" does not support list of text being passed since it is always assumed that input is string. This prohibits any way of using
 own method for splitting sentences. To fix this change 
