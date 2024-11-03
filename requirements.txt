@@ -9,7 +9,7 @@ ftfy==6.2.0 # for fixing malformed extracted text from documents
 customtkinter==5.2.2 # for modern looking Tkinter UI
 
 # For TTS models (this is a fork of TTS with better logging and testing. Also maintained better (allegedly).)
-coqui-tts==0.24.1
+coqui-tts==0.24.2
 
 # model for extracting text from image
 paddleocr>=2.0.1

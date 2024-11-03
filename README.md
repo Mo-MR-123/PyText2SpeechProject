@@ -5,7 +5,8 @@ NOTE: This project is still ongoing. Use at your own risk!
 
 ## INFO TOOLS:  
 
-Python version: 3.11.9  
+Python version: 3.11.9
+Least CUDA version: 12.1   
 
 ## SETUP/INSTALATION STEPS DEV ENV:    
 
@@ -43,6 +44,8 @@ chmod +x install_env.sh
 
 - [ ] Add support for .srt files, to be able to convert subtitles to speech 
 
+- [ ] Make `Dockerfile` for consistent builds later. 
+ 
 - [x]  
 from TTS, the "self.synthesizer.tts(...)" does not support list of text being passed since it is always assumed that input is string. This prohibits any way of using
 own method for splitting sentences. To fix this change 
