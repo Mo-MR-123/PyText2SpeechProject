@@ -1,15 +1,14 @@
-from tkinter import Tk
-from tkinter import ttk
+import customtkinter as ctk
 
-class TkInputBox(ttk.Frame):
+class TkInputBox(ctk.CTkFrame):
 
-    def __init__(self, master: Tk, label_text: str):
+    def __init__(self, master: ctk.CTk, label_text: str):
         super().__init__(master)
-        self.label = ttk.Label(self, text=label_text)
+        self.label = ctk.CTkLabel(self, text=label_text)
         self.label.pack(side="left")
 
-        self.entry = ttk.Entry(self)
-        self.entry.pack(side="left")
+        self.entry = ctk.CTkEntry(self)
+        self.entry.pack(padx=5, side="left")
     
     def get_input_text(self) -> str:
         return self.entry.get()
