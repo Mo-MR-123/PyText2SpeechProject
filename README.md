@@ -65,6 +65,8 @@ Also don't forget to add `__init__.py` in each module so that Python interpreter
 
 - [ ] Add support for .srt files, to be able to convert subtitles to speech 
 
+- [ ] Add pre-commit for code style and code quality checks.
+
 - [ ] Make `Dockerfile` for consistent builds later. 
  
 - [x]  
