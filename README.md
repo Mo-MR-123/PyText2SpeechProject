@@ -5,12 +5,12 @@ NOTE: This project is still ongoing. Use at your own risk!
 
 ## INFO TOOLS:  
 
-Python version: 3.11.9
+Python version: 3.11.9  
 Least CUDA version: 12.1   
-
+ 
 ## SETUP/INSTALATION STEPS DEV ENV:    
 
-### Create environment using python-venv (make sure to have python-venv):
+### Create environment using python-venv (make sure to have python-venv installed):
 ```
 python -m venv venv
 ```
@@ -33,6 +33,27 @@ source venv/Scripts/activate
 chmod +x install_env.sh
 ./install_env.sh
 ```
+
+## Structure of the project  
+The project is divided in `core`, `backend` and `frontend`. In `core` you can find core functionality of the project, such as text processors and interactions with models (e.g. getting output through forward pass).  
+
+The `backend` is responsible for making the `core` public through a Rest API (still need to decide whether to go fo Django or FastAPI) based processing user requests.  
+
+The `frontend` is the client that the user interacts with. Which frontend framework to use still needs to be determined (for now React is plausible option due to its popularity). 
+
+More info can be found in their respective folder.
+
+## Running the backend main.py and important note about imports  
+Use the following command to run the backend main.py from the root folder project (always run scripts from root folder to mitigate import errors):
+```
+python3 run_backend.py
+```  
+
+This is so to make sure that imports are handled and found correctly by the Python interpreter. All modules should be imported following the path from the root folder to the module itself.  
+
+For example, importing a file in `core/folder1/folder2/file.py` from any python script should be done like so `from core.folder1.folder2 import file`.  
+
+Also don't forget to add `__init__.py` in each module so that Python interpreter knows that it is a module that can be imported from other places.
 
 ## PLAN:  
 **1:** Find a good txt2speech model with a voice that is as natural and soothing as possible to listen to.  

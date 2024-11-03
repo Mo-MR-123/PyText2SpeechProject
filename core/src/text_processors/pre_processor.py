@@ -3,7 +3,7 @@ import string
 import re
 
 from typing import List
-from loggers.log_config import LogConfig
+from core.loggers.log_config import LogConfig
 
 log_config = LogConfig(log_level=logging.DEBUG)
 

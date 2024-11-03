@@ -7,8 +7,8 @@ from logging import Logger
 from pathlib import Path
 from datetime import datetime
 
-LOGGER_IS_DEV = int(os.environ["IS_DEV_LOGGING"])
-ENABLE_LOGGING = int(os.environ["ENABLE_LOGGING"])
+LOGGER_IS_DEV = int(os.environ.get("IS_DEV_LOGGING", 1))
+ENABLE_LOGGING = int(os.environ.get("ENABLE_LOGGING", 1))
 
 class LoggerStub:
     def __init__(self):

@@ -12,12 +12,11 @@ if not os.getenv("DEBUG_FLAG", default=0):
 # from src.text_processors.str_to_sentences import split_into_sentences
 # from src.parsers.pypdf_parser import PyPdfParser
 # from src.text_processors.pre_processor import PreProcessor
-from ui.tk_window_main import TkWindowMain
+from core.src.ui.tk_window_main import TkWindowMain
 # from tkinter import Tk
 # from src.parsers.paddle_ocr_parser import PaddleOCRParser
 
-# TODO: check a way to disable logging centrally
-if __name__ == "__main__":
+def main() -> None:
     TkWindowMain("test title").run_mainloop()
 
     # pre_processor = PreProcessor()

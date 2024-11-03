@@ -18,7 +18,7 @@ class TextSplitterSaT:
         self.sat = SaT(self.sat_model_name, style_or_domain=self.sat_model_name, language=self.lang)
         
         if new_device == "cpu":
-                self.sat.to(new_device)    
+            self.sat.to(new_device)    
         elif new_device == "cuda":
             self.sat.half().to(new_device)
 

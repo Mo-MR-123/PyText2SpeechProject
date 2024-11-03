@@ -2,8 +2,8 @@
 import pymupdf
 
 from pathlib import Path
-from src.parsers.base_parser import BaseParser
-from loggers.log_config import LogConfig
+from core.src.parsers.base_parser import BaseParser
+from core.loggers.log_config import LogConfig
 
 log_config = LogConfig()
 

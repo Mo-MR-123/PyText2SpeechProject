@@ -2,8 +2,8 @@
 
 # Set the PYTHONPATH variable to this project root folder so that python can search for modules from 
 # root folder (current folder) where this script is executed.
-# This makes sure that the experiment scripts can see and use other modules (e.g. shared folder)
-# and use it without import errors.
+# This tells Python to treat the root directory (where this script is run) 
+# as the starting point for imports
 export PYTHONPATH="$PWD"
 export IS_DEV_LOGGING=1 # log to stdout if we are in dev. otherwise log in files.
 export ENABLE_LOGGING=0

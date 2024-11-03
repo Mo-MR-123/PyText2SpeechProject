@@ -6,10 +6,10 @@ from TTS.api import TTS
 from pathlib import Path
 from tkinter import filedialog, messagebox
 # from ui.tk_text_label_box import TkTextLabelBox
-from ui.tk_input_box import TkInputBox
-from src.parsers.pymupdf_parser import PyMuPDFParser
-from src.text_processors.pre_processor import PreProcessor
-from src.text_processors.text_splitter_sat import TextSplitterSaT
+from core.src.ui.tk_input_box import TkInputBox
+from core.src.parsers.pymupdf_parser import PyMuPDFParser
+from core.src.text_processors.pre_processor import PreProcessor
+from core.src.text_processors.text_splitter_sat import TextSplitterSaT
 
 """
 The following code is partially inspired by 
