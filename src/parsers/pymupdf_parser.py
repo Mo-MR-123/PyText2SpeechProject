@@ -42,6 +42,19 @@ class PyMuPDFParser(BaseParser):
         if self._pdf_reader:
             self._pdf_reader.close()
 
+    def extract_all_text(self) -> str:
+        """
+        encoding -> https://pymupdf.readthedocs.io/en/latest/textpage.html#TextPage.extractTEXT
+        """
+        all_text = ""
+
+        # Iterate through each page in the document
+        for page in self._pdf_reader:
+            # Extract text from the current page
+            all_text += page.get_text() + "\n"  # Add a newline after each page's text
+            
+        return all_text
+
     def extract_text_from_page(self, page_number: int) -> str:
         """
         encoding -> https://pymupdf.readthedocs.io/en/latest/textpage.html#TextPage.extractTEXT
