@@ -4,7 +4,7 @@ pip3-autoremove==1.2.2 # for removing pip packages including dependencies
 autopep8==2.3.1 #  tool to check your Python code against some of the style conventions in PEP 8.
 pyaudio==0.2.14 # for running sound using wave files
 PyMuPDF==1.24.8 # MAIN library for extracting txt from pdf,txt,epub,XPS,MOBI,FB2,CBZ file types
-wtpsplit==2.0.8 # model for recognizing and splitting text into sentences in various languages.
+wtpsplit==2.1.1 # model for recognizing and splitting text into sentences in various languages.
 ftfy==6.2.0 # for fixing malformed extracted text from documents
 customtkinter==5.2.2 # for modern looking Tkinter UI
 
