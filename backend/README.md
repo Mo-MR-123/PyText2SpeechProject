@@ -1,4 +1,4 @@
-## Backend folder
+## Backend module
 
 The backend uses the `core` folder for executing core functionality, some core function examples:  
 - Running forward pass on TTS model  
