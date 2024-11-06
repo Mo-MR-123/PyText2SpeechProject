@@ -5,8 +5,8 @@ NOTE: This project is still ongoing. Use at your own risk!
 
 ## INFO TOOLS:  
 
-Python version: 3.11.9  
-Least CUDA version: 12.1   
+**Python version**: 3.10.11 (so far this is the latest compatible version of python with the dependencies required in this project)  
+**Least CUDA version**: 12.1   
  
 ## SETUP/INSTALATION STEPS DEV ENV:    
 
@@ -25,7 +25,7 @@ source venv/bin/activate
 
 Windows:
 ```
-source venv/Scripts/activate
+.\venv\Scripts\activate
 ```
 
 ### Install dependencies for the environment using the following script:
